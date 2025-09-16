@@ -1,0 +1,375 @@
+/* ========================================
+   ESTILOS GENERALES
+   ======================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Georgia', serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.pantalla {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s ease-in-out;
+}
+
+.pantalla.activa {
+    opacity: 1;
+    visibility: visible;
+}
+
+.oculto {
+    display: none !important;
+}
+
+/* ========================================
+   PANTALLA DE AMISTAD - INDEX.HTML
+   ======================================== */
+
+#pantalla-amistad {
+    background: linear-gradient(135deg, #66bb6a, #4caf50, #388e3c);
+    position: relative;
+}
+
+/* Contenedor de flores */
+.flores-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none; /* No tapa clics */
+}
+
+/* Cada flor será la imagen */
+.flor {
+    position: absolute;
+    width: 80px;   /* ajusta tamaño */
+    height: 80px;  /* ajusta tamaño */
+    background-image: url("../img/flor.png"); /* ruta de la imagen */
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    animation: flotarFlor 6s ease-in-out infinite;
+}
+
+/* Posiciones de cada flor */
+.flor1 { top: 10%; left: 15%; animation-delay: 0s; }
+.flor2 { top: 20%; right: 20%; animation-delay: 1s; }
+.flor3 { bottom: 15%; left: 10%; animation-delay: 2s; }
+.flor4 { bottom: 25%; right: 15%; animation-delay: 3s; }
+.flor5 { top: 50%; left: 5%; animation-delay: 4s; }
+.flor6 { top: 60%; right: 8%; animation-delay: 5s; }
+.flor7 { top: 15%; left: 50%; animation-delay: 1.5s; }
+.flor8 { bottom: 40%; right: 45%; animation-delay: 3.5s; }
+.flor9 { top: 30%; left: 30%; animation-delay: 2.5s; }
+.flor10 { top: 70%; left: 20%; animation-delay: 4.5s; }
+.flor11 { bottom: 10%; right: 30%; animation-delay: 5.5s; }
+.flor12 { top: 80%; left: 60%; animation-delay: 6s; }
+.flor13 { top: 5%; right: 10%; animation-delay: 2s; }
+.flor14 { bottom: 5%; left: 50%; animation-delay: 6.5s; }
+.flor15 { top: 40%; right: 5%; animation-delay: 7s; }
+.flor16 { bottom: 20%; left: 70%; animation-delay: 3s; }
+
+/* Animación */
+@keyframes flotarFlor {
+    0%, 100% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-15px) rotate(5deg) scale(1.05); }
+    50% { transform: translateY(-10px) rotate(-3deg) scale(0.95); }
+    75% { transform: translateY(-20px) rotate(3deg) scale(1.02); }
+}
+
+
+/* Ventana central del mensaje de amistad */
+.ventana-mensaje {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 40px;
+    max-width: 600px;
+    width: 90%;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+    text-align: center;
+}
+
+.ventana-mensaje h2 {
+    color: #2e7d32;
+    margin-bottom: 25px;
+    font-size: 2.2em;
+}
+
+.ventana-mensaje p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    font-size: 1.1em;
+}
+
+.firma {
+    font-style: italic;
+    color: #4caf50;
+    font-weight: bold;
+    margin-top: 20px;
+    font-size: 1.2em;
+}
+
+/* Candado */
+.candado-container {
+    position: absolute;
+    bottom: 30px;
+    right: 30px;
+    z-index: 20;
+}
+
+.candado {
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+    filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.3));
+}
+
+.candado:hover {
+    transform: scale(1.1);
+}
+
+/* Modal del código */
+.modal-codigo {
+    position: absolute;
+    bottom: 60px;
+    right: 0;
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    min-width: 250px;
+}
+
+.modal-content h3 {
+    color: #333;
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+.modal-content input {
+    width: 100%;
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    font-size: 1em;
+    margin-bottom: 15px;
+    outline: none;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content input:focus {
+    border-color: #4caf50;
+}
+
+.modal-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.modal-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+#btn-confirmar {
+    background: #4caf50;
+    color: white;
+}
+
+#btn-confirmar:hover {
+    background: #45a049;
+}
+
+#btn-cancelar {
+    background: #f44336;
+    color: white;
+}
+
+#btn-cancelar:hover {
+    background: #da190b;
+}
+
+.error-mensaje {
+    color: #f44336;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 0.9em;
+}
+
+/* ========================================
+   PANTALLA DE AMOR - AMOR.HTML
+   ======================================== */
+
+#pantalla-amor {
+    background: linear-gradient(135deg, #e91e63, #ad1457, #880e4f);
+    position: relative;
+}
+
+/* Contenedor */
+.corazones-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    pointer-events: none; /* no bloquea clics */
+}
+
+/* Base de corazones */
+.corazon {
+    position: absolute;
+    font-size: 2em;
+    animation: flotarCorazon 8s ease-in-out infinite;
+}
+
+/* Posiciones individuales */
+.corazon1  { top: 10%; left: 10%; animation-delay: 0s; }
+.corazon2  { top: 20%; right: 15%; animation-delay: 2s; }
+.corazon3  { bottom: 20%; left: 20%; animation-delay: 4s; }
+.corazon4  { bottom: 30%; right: 25%; animation-delay: 1s; }
+.corazon5  { top: 60%; left: 5%; animation-delay: 3s; }
+.corazon6  { top: 40%; right: 10%; animation-delay: 5s; }
+.corazon7  { bottom: 10%; left: 40%; animation-delay: 1.5s; }
+.corazon8  { top: 15%; right: 40%; animation-delay: 2.5s; }
+.corazon9  { bottom: 50%; left: 60%; animation-delay: 3.5s; }
+.corazon10 { top: 70%; right: 30%; animation-delay: 4.5s; }
+.corazon11 { bottom: 5%; left: 70%; animation-delay: 6s; }
+.corazon12 { top: 5%; right: 5%; animation-delay: 7s; }
+
+/* Animación */
+@keyframes flotarCorazon {
+    0%, 100% { 
+        transform: translateY(0) scale(1) rotate(0deg); 
+        opacity: 0.7;
+    }
+    25% { 
+        transform: translateY(-20px) scale(1.2) rotate(5deg); 
+        opacity: 1;
+    }
+    50% { 
+        transform: translateY(-15px) scale(0.8) rotate(-5deg); 
+        opacity: 0.8;
+    }
+    75% { 
+        transform: translateY(-25px) scale(1.1) rotate(3deg); 
+        opacity: 0.9;
+    }
+}
+
+/* Ventana del mensaje de amor */
+.ventana-amor {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(15px);
+    border-radius: 25px;
+    padding: 45px;
+    max-width: 650px;
+    width: 90%;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+    z-index: 10;
+    text-align: center;
+}
+
+.ventana-amor h2 {
+    color: #c2185b;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+}
+
+.ventana-amor p {
+    color: #333;
+    line-height: 1.8;
+    margin-bottom: 25px;
+    font-size: 1.15em;
+}
+
+.firma-amor {
+    font-style: italic;
+    color: #e91e63;
+    font-weight: bold;
+    margin: 25px 0;
+    font-size: 1.3em;
+}
+
+.btn-volver {
+    background: linear-gradient(45deg, #e91e63, #c2185b);
+    color: white;
+    border: none;
+    padding: 15px 30px;
+    border-radius: 25px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 20px;
+}
+
+.btn-volver:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(233, 30, 99, 0.3);
+}
+
+/* ========================================
+   RESPONSIVE DESIGN
+   ======================================== */
+
+@media (max-width: 768px) {
+    .ventana-mensaje, .ventana-amor {
+        padding: 25px;
+        width: 95%;
+    }
+    
+    .ventana-mensaje h2, .ventana-amor h2 {
+        font-size: 1.8em;
+    }
+    
+    .ventana-mensaje p, .ventana-amor p {
+        font-size: 1em;
+    }
+    
+    .flor {
+        width: 40px;
+        height: 40px;
+    }
+    
+    .corazon {
+        font-size: 1.5em;
+    }
+    
+    .modal-codigo {
+        right: -50px;
+        min-width: 220px;
+    }
+}

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Feliz Cumpleaños</title>
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+    <!-- PANTALLA DE AMISTAD -->
+    <div id="pantalla-amistad" class="pantalla activa">
+        <div class="flores-container">
+            <div class="flor flor1"></div>
+            <div class="flor flor2"></div>
+            <div class="flor flor3"></div>
+            <div class="flor flor4"></div>
+            <div class="flor flor5"></div>
+            <div class="flor flor6"></div>
+            <div class="flor flor7"></div>
+            <div class="flor flor8"></div>
+            <div class="flor flor9"></div>
+            <div class="flor flor10"></div>
+            <div class="flor flor11"></div>
+            <div class="flor flor12"></div>
+            <div class="flor flor13"></div>
+            <div class="flor flor14"></div>
+            <div class="flor flor15"></div>
+            <div class="flor flor16"></div>
+        </div>
+
+
+        <!-- Ventana central con mensaje -->
+        <div class="ventana-mensaje">
+            <h2>🌸 ¡Feliz Cumpleaños! 🌸</h2>
+            <p>
+                En este día tan especial quiero decirte lo afortunado/a que me siento de tenerte como amiga.
+                Eres una de esas personas que iluminan la vida de quienes te rodean con tu sonrisa, tu bondad
+                y tu corazón tan generoso.
+            </p>
+            <p>
+                Gracias por todos los momentos compartidos, por tus consejos, por tu apoyo incondicional
+                y por ser esa amiga en la que siempre se puede confiar. Espero que este nuevo año de vida
+                esté lleno de alegría, aventuras increíbles y que todos tus sueños se hagan realidad.
+            </p>
+            <p>
+                ¡Que pases un día maravilloso rodeada de las personas que más te quieren!
+            </p>
+            <div class="firma">Con mucho cariño ✨</div>
+        </div>
+
+        <!-- Icono de candado -->
+        <div class="candado-container">
+            <img src="img/candado.png" alt="Candado secreto" class="candado" id="candado">
+            <!-- Ventana emergente para el código -->
+            <div id="modal-codigo" class="modal-codigo oculto">
+                <div class="modal-content">
+                    <h3>Código Secreto</h3>
+                    <input type="password" id="codigo-input" placeholder="Ingresa el código...">
+                    <div class="modal-buttons">
+                        <button id="btn-confirmar">Confirmar</button>
+                        <button id="btn-cancelar">Cancelar</button>
+                    </div>
+                    <div id="error-mensaje" class="error-mensaje oculto">
+                        Código incorrecto, inténtalo de nuevo
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script-amistad.js"></script>
+</body>
+
+</html>
